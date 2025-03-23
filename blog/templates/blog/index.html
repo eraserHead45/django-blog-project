@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    My blog
+{% endblock %}
+
+{% block css_files%}
+    <link rel="stylesheet" href="{% static "blog/includes/post.css" %}" />
+    <link rel="stylesheet" href="{% static "blog/index.css" %}" />
+{% endblock %}
+
+{% block content %}
+    <section id="welcome">
+        <header>
+            <img src="{% static "blog/images/pain.jpeg" %}" alt="Pain-The Author Of This Blog"/>
+            <h2>PAIN'S BLOG</h2>
+        </header>
+        <p>Those who don't know the true pain will never understand the true peace</p>
+    </section>
+
+    <section id="latest-posts">
+        <h2>My Latest Thoughts</h2>
+
+        <ul>
+            {% for post in posts %}
+                {% include "blog/includes/post.html" %}
+            {% endfor %}
+        </ul>
+    </section>
+        
+    <section id="about">
+        <h2>What I Do</h2>
+        <p>
+            I am a software developer who loves to code. I have been coding for over 3 years
+        </P>
+        <p>
+            My goal is to keep on growing as a developer - and help my family
+        </P>
+    </section>
+{% endblock %}
